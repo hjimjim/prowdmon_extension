@@ -24,26 +24,29 @@ Moving.Engine = function(){
             dragElements[i].ondragstart = function() {
                 return false;
             };
-        
-            startDrag(dragElements[0], event.clientX, event.clientY);
+            startDrag(event);
         });
     }
 }
 
 function onMouseUp(event) {
     finishDrag();
-    saveLocation(event);
+    saveLocation(event.target);
 }
 
 function onMouseMove(event) {
-    moveAt(event.clientX, event.clientY);
+    moveAt(event);
 }
 
 // on drag start:
 //   remember the initial shift
 //   move the element position:fixed and a direct child of body
-function startDrag(element, clientX, clientY) {
+function startDrag(event) {
     console.log("startdrag");
+    let element = event.srcElement;
+    let clientX = event.clientX;
+    let clientY = event.clientY;
+
     if(isDragging) { return; }
     isDragging = true;
 
@@ -55,7 +58,7 @@ function startDrag(element, clientX, clientY) {
 
     element.style.position = 'fixed';
 
-    moveAt(clientX, clientY);
+    moveAt(event);
 }
 
 
@@ -76,13 +79,17 @@ function finishDrag() {
 
 
 
-function moveAt(clientX, clientY) {
+function moveAt(event) {
     // new window-relative coordinates
+    let dragElement = event.srcElement;
+    let clientX = event.clientX;
+    let clientY = event.clientY;
+
     let newX = clientX - shiftX;
     let newY = clientY - shiftY;
 
     // check if the new coordinates are below the bottom window edge
-    let newBottom = newY + dragElements[0].offsetHeight; // new bottom
+    let newBottom = newY + dragElement.offsetHeight; // new bottom
 
     // below the window? let's scroll the page
     if (newBottom > document.documentElement.clientHeight) {
@@ -103,7 +110,7 @@ function moveAt(clientX, clientY) {
         // a swift mouse move make put the cursor beyond the document end
         // if that happens -
         // limit the new Y by the maximally possible (right at the bottom of the document)
-        newY = Math.min(newY, document.documentElement.clientHeight - dragElements[0].offsetHeight);
+        newY = Math.min(newY, document.documentElement.clientHeight - dragElement.offsetHeight);
     }
 
     // check if the new coordinates are above the top window edge (similar logic)
@@ -121,28 +128,34 @@ function moveAt(clientX, clientY) {
     // limit the new X within the window boundaries
     // there's no scroll here so it's simple
     if (newX < 0) newX = 0;
-    if (newX > document.documentElement.clientWidth - dragElements[0].offsetWidth) {
-        newX = document.documentElement.clientWidth - dragElements[0].offsetWidth;
+    if (newX > document.documentElement.clientWidth - dragElement.offsetWidth) {
+        newX = document.documentElement.clientWidth - dragElement.offsetWidth;
     }
 
-    dragElements[0].style.left = newX + 'px';
-    dragElements[0].style.top = newY + 'px';
+    dragElement.style.left = newX + 'px';
+    dragElement.style.top = newY + 'px';
 }
 
 const LOCATION = "location"
-function saveLocation(event) {
-    const X = event.clientX;
-    const Y = event.clientY;
-    const location = {X,Y};
+function saveLocation(object) {
+    console.log(object);
+    const X = object.style.left;
+    const Y = object.style.top;
+    const element = object;
+    const location = {element, X, Y};
+    console.log(element, X, Y);
     localStorage.setItem(LOCATION, JSON.stringify(location));
 }
 
 function loadLocation() {
     const loadedLocation = localStorage.getItem(LOCATION);
-    const parseLocation = JSON.parse(loadedLocation);
-    drag1 = document.querySelector(".draggable");
-    drag1.style.left = parseLocation.X + 'px';
-    drag1.style.top = parseLocation.Y+window.pageYOffset + 'px';
+    const parseIcon = JSON.parse(loadedLocation);
+    // let drag1 = document.querySelector('.draggable');
+    let drag1 = document.querySelector('.draggable');
+    console.log(drag1);
+    console.log(parseIcon.element);
+    drag1.style.left = parseIcon.X;
+    drag1.style.top = parseIcon.Y;
     drag1.style.position = 'absolute';
     console.log(drag1.style.left);
 }
