@@ -7,7 +7,6 @@ const IMG_NUM = 2;
 const dragElements = new Array(IMG_NUM);
 function Move(){
     for (let i = 0; i<IMG_NUM; i++) {
-        console.log(document.querySelector(`.prowdmon${i}`));
         dragElements[i] = document.querySelector(`.prowdmon${i}`);
     }
     this.Engine();
@@ -18,7 +17,6 @@ function Move(){
 Moving.Engine = function(){
     for (let i = 0; i<IMG_NUM; i++) {
         dragElements[i].addEventListener('mousedown', event => {
-            console.log("hhhhhhs")
             if (!dragElements[i]) return;
             event.preventDefault();
             dragElements[i].ondragstart = function() {
@@ -31,7 +29,7 @@ Moving.Engine = function(){
 
 function onMouseUp(event) {
     finishDrag();
-    saveLocation(event.target);
+    saveLocation(event);
 }
 
 function onMouseMove(event) {
@@ -42,7 +40,6 @@ function onMouseMove(event) {
 //   remember the initial shift
 //   move the element position:fixed and a direct child of body
 function startDrag(event) {
-    console.log("startdrag");
     let element = event.srcElement;
     let clientX = event.clientX;
     let clientY = event.clientY;
@@ -136,28 +133,24 @@ function moveAt(event) {
     dragElement.style.top = newY + 'px';
 }
 
-const LOCATION = "location"
-function saveLocation(object) {
-    console.log(object);
-    const X = object.style.left;
-    const Y = object.style.top;
-    const element = object;
+function saveLocation(event) {
+    const X = event.target.style.left;
+    const Y = event.target.style.top;
+    const element = event.target.classList[1];
     const location = {element, X, Y};
-    console.log(element, X, Y);
-    localStorage.setItem(LOCATION, JSON.stringify(location));
+    localStorage.setItem(`${element}`, JSON.stringify(location));
 }
 
 function loadLocation() {
-    const loadedLocation = localStorage.getItem(LOCATION);
-    const parseIcon = JSON.parse(loadedLocation);
-    // let drag1 = document.querySelector('.draggable');
-    let drag1 = document.querySelector('.draggable');
-    console.log(drag1);
-    console.log(parseIcon.element);
-    drag1.style.left = parseIcon.X;
-    drag1.style.top = parseIcon.Y;
-    drag1.style.position = 'absolute';
-    console.log(drag1.style.left);
+    for (let i=0; i<IMG_NUM; i++) {
+        const loadedLocation = localStorage.getItem(`prowdmon${i}`);
+        const parseIcon = JSON.parse(loadedLocation);
+        if (!parseIcon) return;
+        let drag1 = document.querySelector("."+parseIcon.element);
+        drag1.style.left = parseIcon.X;
+        drag1.style.top = parseIcon.Y;
+        drag1.style.position = 'absolute';
+    }
 }
 
 function init() {
