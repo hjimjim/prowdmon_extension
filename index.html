@@ -17,14 +17,15 @@
 
 <body>
     <div id="wrap">
+        
         <header class="header cfixed">
             <img class="logo" src="images/prowdmon/prowdmon_logo.png" alt=""></img>
-            <ul class="gnb">
+            <!-- <ul class="gnb">
                 <div class="js-date-form js-clock-form">
                     <li><h1 class="js-date-text">00월 00일</h1></li>
                     <li><h1 class="js-clock-text">00:00:00</h1></li>
                 </div>
-            </ul>
+            </ul> -->
         </header>
         <article class="slider">
             
@@ -32,6 +33,17 @@
                 <img src="images/p-images/slide04.jpeg" alt="">
             </a>
         </article>
+        <div class="info-wrapper">
+            <p class="info-text">안녕하세요!</p>
+            <form class="info-li">
+                <li><label><input value="1" name="check" type="checkbox"><span>캡틴 모니카</span></label></li>
+                <li><label><input value="0" name="check" type="checkbox"><span>The Great LipJ</span></label></li>
+                <li><label><input value="2" name="check" type="checkbox"><span>황제데이</span></label></li>
+                <button class="info-btn"><span>확인!</span></button>
+                <imput class="intext"></p>
+            </form>
+            <span class="close-info"></span> 
+        </div>
         <section class="search-section"> 
             <div class="search-wrapper active">
                 <form class="search-box">
@@ -44,8 +56,9 @@
             </div>
         </section> 
         <div class="start">
-            <img src="images/prowdmon/lipj.png" class="draggable prowdmon0">
-            <img src="images/prowdmon/monika.png" class="draggable prowdmon1">
+            <img id="pw0" src="images/prowdmon/lipj.png" draggable="true" class="draggable prowdmon0">
+            <img id="pw1" src="images/prowdmon/monika.png" draggable="true" class="draggable prowdmon1">
+            <img id="pw2" src="images/prowdmon/kaday.png" draggable="true" class="draggable prowdmon2">
         </div>
         
            
@@ -54,6 +67,8 @@
     <script src="js/date.js"></script>
     <script src="js/move.js"></script>
     <script src="js/clock.js"></script>
+    <script src="js/info.js"></script>
+    <script src="js/check.js"></script>
 </body>
 
 </html>

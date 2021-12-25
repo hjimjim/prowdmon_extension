@@ -3,7 +3,7 @@ let shiftX, shiftY;
 
 const Moving = Move.prototype;
 
-const IMG_NUM = 2;
+const IMG_NUM = 3;
 const dragElements = new Array(IMG_NUM);
 function Move(){
     for (let i = 0; i<IMG_NUM; i++) {
@@ -11,7 +11,6 @@ function Move(){
     }
     this.Engine();
 }
-
 
 
 Moving.Engine = function(){
@@ -28,11 +27,13 @@ Moving.Engine = function(){
 }
 
 function onMouseUp(event) {
+    console.log("on mouse up")
     finishDrag();
     saveLocation(event);
 }
 
 function onMouseMove(event) {
+    console.log("on Mouse Move")
     moveAt(event);
 }
 
@@ -40,6 +41,7 @@ function onMouseMove(event) {
 //   remember the initial shift
 //   move the element position:fixed and a direct child of body
 function startDrag(event) {
+    console.log("startDrag")
     let element = event.srcElement;
     let clientX = event.clientX;
     let clientY = event.clientY;
@@ -61,6 +63,7 @@ function startDrag(event) {
 
 // switch to absolute coordinates at the end, to fix the element in the document
 function finishDrag() {
+    console.log("finish drag")
     if(!isDragging) {
         return;
     }
@@ -77,6 +80,7 @@ function finishDrag() {
 
 
 function moveAt(event) {
+    console.log("move Ats")
     // new window-relative coordinates
     let dragElement = event.srcElement;
     let clientX = event.clientX;

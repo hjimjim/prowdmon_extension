@@ -58,7 +58,7 @@ margin:0;
 padding:0;
 }
 
-input, textarea{
+/* input, textarea{
 width:100%;
 margin:0;
 padding:0;
@@ -70,7 +70,7 @@ vertical-align:top;
 border-radius:0;
 box-sizing:content-box;
 appearance:none;
-}
+} */
 
 ::-moz-input-placeholder, ::-moz-textarea-placeholder{
 color:#ff4500;
