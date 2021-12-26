@@ -1,5 +1,5 @@
 const Checking = Check.prototype;
-const PR_NUM = 3;
+const PR_NUM = 13;
 let pr_array = new Array(PR_NUM);
 
 function Check(){
@@ -16,12 +16,13 @@ function CheckToggle(evt) {
     for (var i=0; i<values.length; i++) {
       if(values[i].checked){
         $(`.prowdmon${i}`).addClass('active');
-        pr_array[i] = i;
+        pr_array[i] = values[i].value;
       } else{
         $(`.prowdmon${i}`).removeClass('active');
       }
     }
     saveCheck(pr_array);
+    console.log(pr_array);
 
     if (!$('.info-wrapper').hasClass('closed')) {
         $('.info-wrapper').addClass('closed');
@@ -37,8 +38,10 @@ function loadCheck() {
   const loadedCheck = localStorage.getItem("value_array");
   var values = JSON.parse(loadedCheck);
   var check = false;
+  console.log(values);
   for (let i=0; i<PR_NUM; i++) {
       if(values[i]){
+        console.log("loadCheck"+i);
         $(`.prowdmon${i}`).addClass('active');
         check = true;
       }

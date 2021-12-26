@@ -12,7 +12,19 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'HSYuji-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/HSYuji-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: 'ACCchildrenheartOTF-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112-2@1.0/ACCchildrenheartOTF-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 /* 모바일용 CSS */ 
 /* 기본 CSS */ 
 .container{ 
@@ -28,6 +40,7 @@
 } 
 
 .info-wrapper {
+    line-height: 150%;
     border-radius:60px;
     width:90%; 
     max-width:500px;
@@ -46,6 +59,15 @@
     height: 0;
 }
 
+.info-wrapper ul li {
+    list-style-type: none;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0px 5px 6px 0px;
+}
+
+
+
 .info-wrapper.closed .info-text {
     opacity: 0;
     width:  0;
@@ -61,7 +83,7 @@
     position: relative;
     top: 30px;
     left: 30px;
-    font-family: 'SEBANG_Gothic_Bold';
+    font-family: 'ACCchildrenheartOTF-Regular';
     color: white;
 }
 
@@ -69,7 +91,8 @@
     position: relative;
     top: 30px;
     left: 30px;
-    font-family: 'SEBANG_Gothic_Bold';
+    font-size: 20px;
+    font-family: 'ACCchildrenheartOTF-Regular';
     color: white;
 }
 .info-wrapper .close-info {
@@ -130,7 +153,7 @@
 
 /* 헤더 영역 CSS */  
 .header{ position:relative; padding:20px 1%; top: 0; left: 0; right: 0; } 
-.header button{background: transparent}
+.header button{background: transparent; border-radius: 6px;}
 .header .logo{ float:left; background: transparent; } 
 /* .header .logo a{ font-size:26px; color:#ff4500; font-weight:normal; }  */
 .header .gnb{ display:none; position:absolute; top:100%; left:0; width:100%; background:#ff4500; } 

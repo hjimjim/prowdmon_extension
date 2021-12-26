@@ -3,7 +3,7 @@ let shiftX, shiftY;
 
 const Moving = Move.prototype;
 
-const IMG_NUM = 3;
+const IMG_NUM = 13;
 const dragElements = new Array(IMG_NUM);
 function Move(){
     for (let i = 0; i<IMG_NUM; i++) {
@@ -27,13 +27,11 @@ Moving.Engine = function(){
 }
 
 function onMouseUp(event) {
-    console.log("on mouse up")
-    finishDrag();
+    finishDrag(event);
     saveLocation(event);
 }
 
 function onMouseMove(event) {
-    console.log("on Mouse Move")
     moveAt(event);
 }
 
@@ -41,7 +39,6 @@ function onMouseMove(event) {
 //   remember the initial shift
 //   move the element position:fixed and a direct child of body
 function startDrag(event) {
-    console.log("startDrag")
     let element = event.srcElement;
     let clientX = event.clientX;
     let clientY = event.clientY;
@@ -62,25 +59,24 @@ function startDrag(event) {
 
 
 // switch to absolute coordinates at the end, to fix the element in the document
-function finishDrag() {
-    console.log("finish drag")
+function finishDrag(event) {
     if(!isDragging) {
         return;
     }
 
     isDragging = false;
 
-    dragElements[0].style.top = parseInt(dragElements[0].style.top) + window.pageYOffset + 'px';
-    dragElements[0].style.position = 'absolute';
+    let dragElement = event.srcElement;
+    dragElement.style.top = parseInt(dragElement.style.top) + window.pageYOffset + 'px';
+    dragElement.style.position = 'absolute';
 
     document.removeEventListener('mousemove', onMouseMove);
-    dragElements[0].removeEventListener('mouseup', onMouseUp);
+    dragElement.removeEventListener('mouseup', onMouseUp);
 }
 
 
 
 function moveAt(event) {
-    console.log("move Ats")
     // new window-relative coordinates
     let dragElement = event.srcElement;
     let clientX = event.clientX;
@@ -151,6 +147,7 @@ function loadLocation() {
         const parseIcon = JSON.parse(loadedLocation);
         if (!parseIcon) return;
         let drag1 = document.querySelector("."+parseIcon.element);
+        console.log(drag1);
         drag1.style.left = parseIcon.X;
         drag1.style.top = parseIcon.Y;
         drag1.style.position = 'absolute';
