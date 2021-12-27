@@ -3,7 +3,7 @@ let shiftX, shiftY;
 
 const Moving = Move.prototype;
 
-const IMG_NUM = 15;
+const IMG_NUM = 17;
 const dragElements = new Array(IMG_NUM);
 function Move(){
     for (let i = 0; i<IMG_NUM; i++) {

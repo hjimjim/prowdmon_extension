@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"> -->
     <title>PROWDMON</title>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/default.css">
@@ -19,96 +18,103 @@
     <div id="wrap">
         <header class="header cfixed">
             <!-- <img class="logo" src="images/prowdmon/prowdmon_logo.png" alt=""></img> -->
-            <button>
+            <button class="logo_btn">
             <img class="logo" src="images/prowdmon/prowdmon_logo.png" alt=""></img>
             </button>
-            <!-- <ul class="gnb">
-                <div class="js-date-form js-clock-form">
-                    <li><h1 class="js-date-text">00월 00일</h1></li>
-                    <li><h1 class="js-clock-text">00:00:00</h1></li>
+            <!-- <section class="search-section">  -->
+                <div class="search-wrapper active">
+                    <form class="search-box">
+                        <div class="input-holder">
+                            <input type="text" class="search-input" autocomplete="off" name="search" placeholder="  We are so PROWDMON!!!" />
+                            <!-- <button class="search-icon"><span></span></button> -->
+                            <button class="search-icon"><img src="images/p-images/search.PNG"></button>
+                        </div>
+                    </form>
+                    <!-- <span class="close"></span>  -->
+                    <button class="close"><span>❌</span></button>
                 </div>
-            </ul> -->
+            <!-- </section>  -->
         </header>
         <article class="slider">
             
-            <a href="">
                 <img src="images/p-images/slide04.jpeg" alt="">
-            </a>
         </article>
         <div class="info-wrapper">
+            <!-- <button class="close-info info-btn"><span>❌ </span></button> -->
+            <button class="close-info info-btn"><span>✔︎</span></button>
             <p class="info-text">안녕하세요! 개발하는 프라이팬입니다. <br>프라이팬 분들을 위한 웹꾸 익스텐션을 만들었어요!.
             <br> 아래 체크 박스를 클릭하고 확인을 누르시면 이미지가 나오고, <br> 그 이미지를 드레그하면 원하는 위치에 고정됩니다!
             <br> 왼쪽 상단에 프라우드먼 로고 클릭하면 재설정 가능합니다.<br><br> </p>
+            
             <div class="info-li">
-                <ul class="gnb">
+                <ul>
                     <li><label><input value="prowdmon0" name="check" type="checkbox"><span>캡틴 모니카</span></label></li>
-                    <li><label><input value="prowdmon13" name="check" type="checkbox"><span>캡틴 모니카 큰 사진</span></label></li>
+                    <li><label><input value="prowdmon13" name="check" type="checkbox"><span>모니카 큰 사진</span></label></li>
                 </ul>
-                <ul class="gnb">
+                <ul>
                     <li><label><input value="prowdmon1" name="check" type="checkbox"><span>The Great LipJ</span></label></li>
-                    <li><label><input value="prowdmon14" name="check" type="checkbox"><span>LipJ 큰 사진</span></label></li>
+                    <li><label><input value="prowdmon14" name="check" type="checkbox"><span>LipJ 큰 사진 1</span></label></li>
+                    <li><label><input value="prowdmon15" name="check" type="checkbox"><span>LipJ 큰 사진 2</span></label></li>
                 </ul>
 
-                <ul class="gnb">
+                <ul>
                     <li><label><input value="prowdmon2" name="check" type="checkbox"><span>카메 Kame</span></label></li>
                     <li><label><input value="prowdmon3" name="check" type="checkbox"><span>민즈 Minz</span></label></li>
                 </ul>
-                <ul class="gnb">
+                <ul>
                     <li><label><input value="prowdmon4" name="check" type="checkbox"><span>티원 T.One</span></label></li>
                     <li><label><input value="prowdmon5" name="check" type="checkbox"><span>조리 Jory</span></label></li>
 
                 </ul>
-                <ul class="gnb">
+                <ul>
                     <li><label><input value="prowdmon6" name="check" type="checkbox"><span>함지 HAM.G</span></label></li>
                     <li><label><input value="prowdmon7" name="check" type="checkbox"><span>다이아 DIA</span></label></li>
                 </ul>
-                <ul class="gnb">
+                <ul>
                     <li><label><input value="prowdmon8" name="check" type="checkbox"><span>헤이주 Heyjoo</span></label></li>
                     <li><label><input value="prowdmon9" name="check" type="checkbox"><span>헤일리 Hyeily</span></label></li>
                 </ul>
-                <ul class="gnb">
+                <ul>
                     <li><label><input value="prowdmon10" name="check" type="checkbox"><span>로지 Rosy</span></label></li>
                     <li><label><input value="prowdmon11" name="check" type="checkbox"><span>케이데이 Kayday</span></label></li>
                 </ul>
-                <ul class="gnb">
+                <ul>
                     <li><label><input value="prowdmon12" name="check" type="checkbox"><span>윈지Win.G</span></label></li>
-                    <button class="info-btn"><span>확인!</span></button>
+                    <li><label><input value="prowdmon18" name="check" type="checkbox"><span>프라이팬</span></label></li>
                 </ul>
-                
+                <ul>
+                    <li><label><input value="prowdmon16" name="check" type="checkbox"><span>순이 언니</span></label></li>
+                    <li><label><input value="prowdmon17" name="check" type="checkbox"><span>근육 곰돌</span></label></li>
+                </ul>
             </div>
-            <span class="close-info"></span> 
-        </div>
-        <section class="search-section"> 
-            <div class="search-wrapper active">
-                <form class="search-box">
-                    <div class="input-holder">
-                        <input type="text" class="search-input" autocomplete="off" name="search" placeholder="We are so PROWDMON!!!" />
-                        <!-- <button class="search-icon"><span></span></button> -->
-                        <button class="search-icon"><img src="images/p-images/search.PNG"></button>
-                    </div>
-                </form>
-                <span class="close"></span> 
-            </div>
-        </section> 
-        <div class="start">
-            <img id="pw0" src="images/prowdmon/monika_line.png" draggable="true" class="draggable prowdmon0">
-            <img id="pw13" src="images/prowdmon/monika_big1.png" draggable="true" class="draggable prowdmon13">
-            <img id="pw1" src="images/prowdmon/lipj_line.png" draggable="true" class="draggable prowdmon1">
-            <img id="pw14" src="images/prowdmon/lipj_big1.png" draggable="true" class="draggable prowdmon14">
-            <img id="pw2" src="images/prowdmon/kame.png" draggable="true" class="draggable prowdmon2">
-            <img id="pw3" src="images/prowdmon/minz.png" draggable="true" class="draggable prowdmon3">
-            <img id="pw4" src="images/prowdmon/tone.png" draggable="true" class="draggable prowdmon4">
-            <img id="pw5" src="images/prowdmon/jory.png" draggable="true" class="draggable prowdmon5">
-            <img id="pw6" src="images/prowdmon/hamg.png" draggable="true" class="draggable prowdmon6">
-            <img id="pw7" src="images/prowdmon/dia.png" draggable="true" class="draggable prowdmon7">
-            <img id="pw8" src="images/prowdmon/heyjoo.png" draggable="true" class="draggable prowdmon8">
-            <img id="pw9" src="images/prowdmon/hyeily.png" draggable="true" class="draggable prowdmon9">
-            <img id="pw10" src="images/prowdmon/rosy.png" draggable="true" class="draggable prowdmon10">
-            <img id="pw11" src="images/prowdmon/kayday.png" draggable="true" class="draggable prowdmon11">
-            <img id="pw12" src="images/prowdmon/wing.png" draggable="true" class="draggable prowdmon12">
         </div>
         
-           
+        <div class="start">
+            <img src="images/prowdmon/monika_line.png" draggable="true" class="draggable prowdmon0">
+            <img src="images/prowdmon/monika_big1.png" draggable="true" class="draggable prowdmon13">
+            <img src="images/prowdmon/lipj_line.png" draggable="true" class="draggable prowdmon1">
+            <img src="images/prowdmon/lipj_big1.png" draggable="true" class="draggable prowdmon14">
+            <img src="images/prowdmon/lipj_big2.png" draggable="true" class="draggable prowdmon15">
+            <img src="images/prowdmon/kame.png" draggable="true" class="draggable prowdmon2">
+            <img src="images/prowdmon/minz.png" draggable="true" class="draggable prowdmon3">
+            <img src="images/prowdmon/tone.png" draggable="true" class="draggable prowdmon4">
+            <img src="images/prowdmon/jory.png" draggable="true" class="draggable prowdmon5">
+            <img src="images/prowdmon/hamg.png" draggable="true" class="draggable prowdmon6">
+            <img src="images/prowdmon/dia.png" draggable="true" class="draggable prowdmon7">
+            <img src="images/prowdmon/heyjoo.png" draggable="true" class="draggable prowdmon8">
+            <img src="images/prowdmon/hyeily.png" draggable="true" class="draggable prowdmon9">
+            <img src="images/prowdmon/rosy.png" draggable="true" class="draggable prowdmon10">
+            <img src="images/prowdmon/kayday.png" draggable="true" class="draggable prowdmon11">
+            <img src="images/prowdmon/wing.png" draggable="true" class="draggable prowdmon12">
+            <img src="images/prowdmon/wing.png" draggable="true" class="draggable prowdmon16">
+            <img src="images/prowdmon/wing.png" draggable="true" class="draggable prowdmon17">
+            <img src="images/prowdmon/wing.png" draggable="true" class="draggable prowdmon18">
+        
+
+
+        
+        
+    </div>
     </div>
     <script src="js/search.js"></script>
     <script src="js/move.js"></script>

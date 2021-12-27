@@ -1,5 +1,5 @@
 const Checking = Check.prototype;
-const PR_NUM = 15;
+const PR_NUM = 17;
 let pr_array = new Array(PR_NUM);
 
 function Check(){
@@ -38,11 +38,11 @@ function loadCheck() {
   const loadedCheck = localStorage.getItem("value_array");
   var values = JSON.parse(loadedCheck);
   var check = false;
-  // console.log(values);
+  console.log(values);
   for (let i=0; i<PR_NUM; i++) {
       if(values[i]){
-        // console.log("loadCheck"+i);
-        $(`.${values[i].value}`).addClass('active');
+        console.log(values[i]);
+        $(`.${values[i]}`).addClass('active');
         check = true;
       }
   }
