@@ -15,10 +15,10 @@ function CheckToggle(evt) {
     var values = document.getElementsByName("check");
     for (var i=0; i<values.length; i++) {
       if(values[i].checked){
-        $(`.prowdmon${i}`).addClass('active');
+        $(`.${values[i].value}`).addClass('active');
         pr_array[i] = values[i].value;
       } else{
-        $(`.prowdmon${i}`).removeClass('active');
+        $(`.${values[i].value}`).removeClass('active');
       }
     }
     saveCheck(pr_array);
@@ -42,7 +42,7 @@ function loadCheck() {
   for (let i=0; i<PR_NUM; i++) {
       if(values[i]){
         // console.log("loadCheck"+i);
-        $(`.prowdmon${i}`).addClass('active');
+        $(`.${values[i].value}`).addClass('active');
         check = true;
       }
   }
