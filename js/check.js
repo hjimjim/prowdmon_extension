@@ -1,5 +1,5 @@
 const Checking = Check.prototype;
-const PR_NUM = 13;
+const PR_NUM = 15;
 let pr_array = new Array(PR_NUM);
 
 function Check(){
@@ -22,11 +22,11 @@ function CheckToggle(evt) {
       }
     }
     saveCheck(pr_array);
-    console.log(pr_array);
+    // console.log(pr_array);
 
     if (!$('.info-wrapper').hasClass('closed')) {
         $('.info-wrapper').addClass('closed');
-        console.log("hhhhhhh")
+        // console.log("hhhhhhh")
         evt.preventDefault();
     }
 }
@@ -38,10 +38,10 @@ function loadCheck() {
   const loadedCheck = localStorage.getItem("value_array");
   var values = JSON.parse(loadedCheck);
   var check = false;
-  console.log(values);
+  // console.log(values);
   for (let i=0; i<PR_NUM; i++) {
       if(values[i]){
-        console.log("loadCheck"+i);
+        // console.log("loadCheck"+i);
         $(`.prowdmon${i}`).addClass('active');
         check = true;
       }
@@ -51,7 +51,7 @@ function loadCheck() {
   }
 }
 Checking.Engine = function(){
-    console.log("89898989");
+    // console.log("89898989");
     this.button.addEventListener('click', CheckToggle);
     this.logo.addEventListener('click',showInfo);
     loadCheck();

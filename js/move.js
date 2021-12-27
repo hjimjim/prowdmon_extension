@@ -3,7 +3,7 @@ let shiftX, shiftY;
 
 const Moving = Move.prototype;
 
-const IMG_NUM = 13;
+const IMG_NUM = 15;
 const dragElements = new Array(IMG_NUM);
 function Move(){
     for (let i = 0; i<IMG_NUM; i++) {
@@ -19,6 +19,7 @@ Moving.Engine = function(){
             if (!dragElements[i]) return;
             event.preventDefault();
             dragElements[i].ondragstart = function() {
+                console.log("what is this?");
                 return false;
             };
             startDrag(event);
@@ -27,6 +28,7 @@ Moving.Engine = function(){
 }
 
 function onMouseUp(event) {
+    console.log("UP"+event.srcElement);
     finishDrag(event);
     saveLocation(event);
 }
@@ -47,14 +49,14 @@ function startDrag(event) {
     isDragging = true;
 
     document.addEventListener('mousemove', onMouseMove);
-    element.addEventListener('mouseup', onMouseUp);
+    document.addEventListener('mouseup', onMouseUp);
 
     shiftX = clientX - element.getBoundingClientRect().left;
     shiftY = clientY - element.getBoundingClientRect().top;
 
     element.style.position = 'fixed';
 
-    moveAt(event);
+    //moveAt(event);
 }
 
 
@@ -147,7 +149,6 @@ function loadLocation() {
         const parseIcon = JSON.parse(loadedLocation);
         if (!parseIcon) return;
         let drag1 = document.querySelector("."+parseIcon.element);
-        console.log(drag1);
         drag1.style.left = parseIcon.X;
         drag1.style.top = parseIcon.Y;
         drag1.style.position = 'absolute';
