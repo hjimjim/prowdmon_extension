@@ -3,7 +3,7 @@ let shiftX, shiftY;
 
 const Moving = Move.prototype;
 
-const IMG_NUM = 17;
+const IMG_NUM = 31;
 const dragElements = new Array(IMG_NUM);
 function Move(){
     for (let i = 0; i<IMG_NUM; i++) {
@@ -19,16 +19,32 @@ Moving.Engine = function(){
             if (!dragElements[i]) return;
             event.preventDefault();
             dragElements[i].ondragstart = function() {
-                console.log("what is this?");
                 return false;
             };
+            if(!event.srcElement.classList.contains('draggable')){
+                return false;
+            }
             startDrag(event);
+        });
+        dragElements[i].addEventListener('dblclick', event => {
+            if (!dragElements[i]) return;
+            event.preventDefault();
+            dragElements[i].ondragstart = function() {
+                return false;
+            };
+            if(event.srcElement.style.zIndex == "1") {
+                console.log(event.srcElement, event.srcElement.style.zIndex);
+                event.srcElement.style.zIndex="0";
+            } else {
+                console.log(event.srcElement, event.srcElement.style.zIndex);
+                event.srcElement.style.zIndex="1";
+            }
+            saveLocation(event);
         });
     }
 }
 
 function onMouseUp(event) {
-    console.log("UP"+event.srcElement);
     finishDrag(event);
     saveLocation(event);
 }
@@ -139,7 +155,8 @@ function saveLocation(event) {
     const X = event.target.style.left;
     const Y = event.target.style.top;
     const element = event.target.classList[1];
-    const location = {element, X, Y};
+    const zindex = event.srcElement.style.zIndex;
+    const location = {element, X, Y, zindex};
     localStorage.setItem(`${element}`, JSON.stringify(location));
 }
 
@@ -147,11 +164,12 @@ function loadLocation() {
     for (let i=0; i<IMG_NUM; i++) {
         const loadedLocation = localStorage.getItem(`prowdmon${i}`);
         const parseIcon = JSON.parse(loadedLocation);
-        if (!parseIcon) return;
+        if (!parseIcon) continue;
         let drag1 = document.querySelector("."+parseIcon.element);
         drag1.style.left = parseIcon.X;
         drag1.style.top = parseIcon.Y;
         drag1.style.position = 'absolute';
+        drag1.style.zIndex = ""+parseIcon.zindex;
     }
 }
 

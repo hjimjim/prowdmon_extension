@@ -18,7 +18,6 @@ function InfoToggle(evt) {
 }
 
 InfoE.Engine = function(){
-    console.log("aaaaaaa")
     this.ss.addEventListener('click', InfoToggle);
 }
 

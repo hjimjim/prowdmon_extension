@@ -26,13 +26,24 @@
     content:""; 
     clear:both; 
 } 
+.start img{
+    position: absolute;
+    left: 0;
+    top: 50px;
+}
+.start img:hover{
+    background-color:rgba(0,0,0,0.2); 
+    transform:translateY(2px); 
+    opacity: 0.9;
+} 
+
 
 .info-wrapper {
     line-height: 150%;
     border-radius:60px;
     width:55%; 
     max-width:700px;
-    height: 600px;
+    height: 700px;
     transform: translate(-50%, -50%);
     background-color: rgba(0,0,0,0.85);
     z-index: 10;
@@ -67,29 +78,26 @@
     opacity: 0;
     width:  0;
     height: 0;
+    /* left: 0; */
+    /* top: 0; */
 }
 
 .info-wrapper.closed .close-info {
     width:  0;
     height: 0;
+    /* left: 0; */
+    /* top: 0; */
 }
 
-.info-wrapper .info-li {
+.info-wrapper .info-text, .info-wrapper .info-li {
     position: relative;
     top: 30px;
     left: 30px;
     font-family: 'ACCchildrenheartOTF-Regular';
-    color: white;
-}
-
-.info-wrapper .info-text {
-    position: relative;
-    top: 30px;
-    left: 30px;
     font-size: 20px;
-    font-family: 'ACCchildrenheartOTF-Regular';
     color: white;
 }
+
 .info-wrapper .close-info {
      position: absolute;
      z-index: 1;
@@ -99,7 +107,7 @@
      height:40px;
      cursor: pointer;
      color:#ff4500;
-     font-size: 25px;
+     font-size: 19px;
      background-color: transparent;
      border-radius: 5px;
      border: 0px solid ; 
@@ -135,8 +143,11 @@
      border: 0px solid ; 
 }
 .header button:hover{
+    cursor: pointer;
     background-color: #3d3d50;
+    border-radius: 5px;
 }
+
 .header .logo{ float:left; background: transparent;} 
 /* .header .logo a{ font-size:26px; color:#ff4500; font-weight:normal; }  */
 /* .header .gnb{ display:none; position:absolute; top:100%; left:0; width:100%; background:#ff4500; }  */
@@ -189,9 +200,9 @@
      outline:none;
      font-family: 'SEBANG_Gothic_Bold';
      font-size: 24px;
+     color:white;
      font-weight: 50;
      line-height: 20px;
-     color:#FFF;
      transform: translate(0, 60px);
      transition: all .3s cubic-bezier(0.000, 0.105, 0.035, 1.570);
      transition-delay: 0.3s;
@@ -203,9 +214,11 @@
  .search-wrapper .input-holder .search-icon {
      width:70px;
      height:70px;
-     border:none;
+     border:2px solid;
      border-radius:60px;
-     background: rgb(255, 255, 255);
+     border-color:#e14000;
+     color:white;
+     background: rgb(46, 46, 46);
      padding:0px;
      outline:none;
      position: relative;
@@ -215,9 +228,9 @@
      transition: all 0.3s ease-in-out;
  }
  .search-wrapper.active .input-holder .search-icon {
-     width: 50px;
-     height:50px;
-     margin: 10px;
+     width: 60px;
+     height:60px;
+     margin: 6px;
      border-radius: 30px;
  }
  .search-wrapper .input-holder .search-icon span {
