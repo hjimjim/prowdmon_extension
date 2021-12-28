@@ -53,6 +53,8 @@ function loadCheck() {
   }
   if(check){
     $('.info-wrapper').addClass('closed');
+  } else {
+    $('.info-wrapper').removeClass('closed');
   }
 }
 Checking.Engine = function(){

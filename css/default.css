@@ -52,6 +52,10 @@
     left:50%;
 }
 
+.info-wrapper strong{
+    color: #ff5010; 
+ }
+
 .info-wrapper.closed {
     opacity: 0;
     width:  0;
@@ -141,12 +145,15 @@
 .header{ position:relative; padding:12px 10px; top: 0; left: 0; right: 0; } 
 .logo_btn{background: transparent; border-radius: 6px; box-shadow: 1px 1px 10px 1px #6b8196;
      border: 0px solid ; 
+     z-index: 10;
 }
 .header button:hover{
     cursor: pointer;
     background-color: #3d3d50;
     border-radius: 5px;
+    z-index: 10;
 }
+
 
 .header .logo{ float:left; background: transparent;} 
 /* .header .logo a{ font-size:26px; color:#ff4500; font-weight:normal; }  */
@@ -179,10 +186,13 @@
      border-radius:6px;
      position: relative;
      transition: all 0.3s ease-in-out;
+     /* border: 2px solid;
+     border-color:#e14000; */
  }
  .search-wrapper.active .input-holder {
      width:450px;
      border-radius: 50px;
+     /* background: rgba(46, 46, 46, 0.7); */
      background: rgba(46, 46, 46, 0.7);
      /* transition: all .5s cubic-bezier(0.000, 0.105, 0.035, 1.570); */
  }
@@ -214,11 +224,13 @@
  .search-wrapper .input-holder .search-icon {
      width:70px;
      height:70px;
-     border:2px solid;
+     /* border:2px solid; */
      border-radius:60px;
-     border-color:#e14000;
+     border:2px solid;
+     /* border-color:#e14000; */
+     border-color: rgb(52, 52, 52);
      color:white;
-     background: rgb(46, 46, 46);
+     background: rgb(23, 23, 23);
      padding:0px;
      outline:none;
      position: relative;
@@ -288,6 +300,8 @@
     /* 헤더 영역 CSS */ 
     .header{ position:static; padding:12px 10px; } 
     .header .menu-toggle-btn{ display:none !important; } 
+    .header .logo_btn{z-index: 10;}
+    .header button{z-index: 10;}
     /* 푸터 영역 CSS */ 
     .footer iframe{ height:432px; } .footer p{ margin:34px 0; }  
 } 

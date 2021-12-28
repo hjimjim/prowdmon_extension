@@ -1,5 +1,6 @@
 let isDragging = false;
 let shiftX, shiftY;
+let zidx;
 
 const Moving = Move.prototype;
 
@@ -71,6 +72,9 @@ function startDrag(event) {
     shiftY = clientY - element.getBoundingClientRect().top;
 
     element.style.position = 'fixed';
+    zidx = element.style.zIndex;
+    console.log(zidx);
+    element.style.zIndex = 2;
 
     //moveAt(event);
 }
@@ -90,6 +94,9 @@ function finishDrag(event) {
 
     document.removeEventListener('mousemove', onMouseMove);
     dragElement.removeEventListener('mouseup', onMouseUp);
+    
+    dragElement.style.zIndex = zidx;
+    
 }
 
 
