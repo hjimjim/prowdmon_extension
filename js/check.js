@@ -1,5 +1,5 @@
 const Checking = Check.prototype;
-const PR_NUM = 31;
+const PR_NUM = 32;
 let pr_array = new Array(PR_NUM);
 
 function Check(){
@@ -19,6 +19,7 @@ function CheckToggle(evt) {
         pr_array[i] = values[i].value;
       } else{
         $(`.${values[i].value}`).removeClass('active');
+        pr_array[i] = '';
       }
     }
     saveCheck(pr_array);
@@ -30,11 +31,6 @@ function CheckToggle(evt) {
 }
 function saveCheck(values) {
   localStorage.setItem("value_array", JSON.stringify(values));
-  // for (var i=0; i<values.length; i++) {
-  //     if(values[i].checked){
-  //       localStorage.setItem(`checkbox${i}`, values[i].checked);
-  //     } 
-  // }
 }
 
 function loadCheck() {
@@ -43,6 +39,11 @@ function loadCheck() {
   var check = false;
 
   var checkes = document.getElementsByName("check");
+
+  if(!values){
+    $('.info-wrapper').removeClass('closed');
+    return false;
+  }
   
   for (let i=0; i<PR_NUM; i++) {
       if(values[i]){
