@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "PROWDMON Web Deco",
     "description": "Extension for FryFan",
-    "version": "1.0",
+    "version": "1.2",
     "icons": {
         "128": "128.png"
     },

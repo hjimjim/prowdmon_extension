@@ -24,16 +24,7 @@
     content:""; 
     clear:both; 
 } 
-.start img{
-    position: absolute;
-    left: 0;
-    top: 50px;
-}
-.start img:hover{
-    background-color:rgba(0,0,0,0.2); 
-    transform:translateY(2px); 
-    opacity: 0.9;
-} 
+
 
 
 .info-wrapper {
@@ -130,10 +121,24 @@
     cursor: pointer;
 }
 .draggable.active {
-    width:  auto;
-    height: auto;
     cursor: pointer;
+    width: auto;
+    height: auto;
 }
+
+.start img{
+    position: absolute;
+    left: 0;
+    top: 50px;
+    object-fit:cover;
+    resize:both;
+    overflow: auto;
+}
+.start img:hover{
+    background-color:rgba(0,0,0,0.2); 
+    transform:translateY(2px); 
+    opacity: 0.9;
+} 
 
 .sec-tit{ font-size:42px; color:#ff4500; font-weight:normal; } 
 .divider{ width:90%; max-width:1132px; margin:0 auto; margin-top:77px; background:#eee; } 
@@ -155,7 +160,6 @@
 
 .header .logo{ float:left; background: transparent;} 
 .slider img{ display:block; width:100%; max-width:100%; height:auto; box-shadow: 1px 1px 10px 1px #6b8196;pointer-events: none;}
-
   body {
     background: #212129;
  }
@@ -294,4 +298,5 @@
     .header button{z-index: 10;}
     /* 푸터 영역 CSS */ 
     .footer iframe{ height:432px; } .footer p{ margin:34px 0; }  
+    .start{ }
 } 
